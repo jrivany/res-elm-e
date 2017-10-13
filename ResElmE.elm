@@ -38,7 +38,7 @@ viewPosition p =
         []
         [ strong [] [ text p.company ]
         , Html.p [] [ text p.title, italic p.timeline]
-        , Html.p [] [ text "Fullstack Java / Javascript web development" ]
+        , Html.p [] [ text p.description ]
         , list p.points
         ]
 
