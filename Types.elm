@@ -16,7 +16,7 @@ type alias Resume =
     , phone : String
     , positions : List Position
     , educations : List Education
-    , skills : List String
+    , skills : List (String, List String)
     }
 
 type alias Education =

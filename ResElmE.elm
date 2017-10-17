@@ -57,9 +57,7 @@ viewTitle res =
     section
         []
         [ h1 [] [ text res.name ]
-        , rule
         , p [] [ blockquote [] [ text res.title ] ]
-        , rule
         , viewContact res
         ]
 
@@ -71,11 +69,27 @@ viewEducation ed =
         , dd [] [ strong [] [ text ed.degree ], text ed.school ]
         ]
 
-viewSkills : List String -> Html msg
-viewSkills skills =
-    section
-        []
-        [ list skills ]
+viewSkill : (String, List String) -> Html msg
+viewSkill (group, skills) =
+    let
+        head =
+            case List.head skills of
+                Nothing ->
+                    ""
+                Just skill ->
+                    skill
+        tail =
+            case List.tail skills of
+                Nothing ->
+                    []
+                Just s ->
+                    s
+    in
+        tr
+            []
+            [ td [] [ strong [] [ text group ] ]
+            , td [] [ text <| List.foldl (\l r -> r ++ ", " ++ l) head tail ]
+            ]
 
 viewSection : (a -> Html msg) -> List a -> Html msg
 viewSection f a =
@@ -96,7 +110,7 @@ view =
             , viewSection viewEducation res.educations
             , rule
             , sechead "Skills"
-            , viewSkills res.skills
+            , table [] <| List.map viewSkill res.skills
             , rule
             , sechead "Experience"
             , viewSection viewPosition res.positions
