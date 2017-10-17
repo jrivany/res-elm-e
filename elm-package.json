@@ -1,7 +1,7 @@
 {
     "version": "1.0.0",
     "summary": "A little porject to generate an html resume from elm",
-    "repository": "https://github.com/jrivany/res-elm-e",
+    "repository": "https://github.com/jrivany/res-elm-e.git",
     "license": "BSD3",
     "source-directories": [
         "."

@@ -29,8 +29,6 @@ resume =
             }
         ]
     , skills =
-        [ "Cutting"
-        , "Cleaning"
-        , "Fixing equipment"
+        [ ("Restaurant", [ "Cutting" , "Cleaning" , "Fixing equipment" ] )
         ]
     }
